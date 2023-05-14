@@ -133,10 +133,13 @@ main{
     position: relative;
     top: 5.4rem;
 }
-
+.right{
+    display: none;
+    width: 30vw;
+}
 main .container{
     display: grid;
-    grid-template-columns: 18vw 44vw 20vw;
+    grid-template-columns: 18vw auto auto;
     gap: 2rem;
     position: relative;
     right: 50px;
@@ -718,7 +721,7 @@ cursor: pointer;
         width: 96%;
     }
     main .container{
-        grid-template-columns: 5rem auto 0;
+        grid-template-columns: 5rem auto auto;
         gap: 1rem;
     }
     .left {
@@ -754,7 +757,7 @@ cursor: pointer;
 
 
 /*  For small tablets and mobile phones */
-@media screen and (max-width: 500px){
+@media screen and (max-width: 850px){
     nav .search-bar{
         display: none;
     }
@@ -766,14 +769,14 @@ cursor: pointer;
     main .container .left{
         
        position: fixed;
-       left: 405px;
+       left: -400px;
        top: 80px;
     
     }
 
     .left .notifications-popup{
         position: absolute;
-        left: -20rem;
+        
         width: 20rem;
     }
     .left .notifications-popup::before{
