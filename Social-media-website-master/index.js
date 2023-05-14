@@ -30,9 +30,9 @@ menuItems.forEach(item => {
         changeActiveItem();
         item.classList.add('active');
         
-        if (item.id != 'notifications') {
+        if (item.id != 'notifications' && item.id !='right' &&item.id !='theme') {
             document.querySelector('.notifications-popup').style.display = 'none';
-        } else {
+        } else if(item.id == 'notifications'){
             document.querySelector('.notifications-popup').style.display = 'block';
             document.querySelector('#notifications .notification-count').style.display='none';
         }
@@ -51,18 +51,7 @@ const searchMessage = () => {
     })
 }
 
-messageSearch.addEventListener('keyup', searchMessage);
 
-
-
-messagesNotification.addEventListener('click', () => {
-    messages.style.boxShadow = '0 0 1rem var(--color-primary)';
-    
-    messagesNotification.querySelector('.notification-count').style.display = 'none';
-    setTimeout(() => {
-        messages.style.boxShadow = 'none';
-    }, 2000);
-})
 
 //theme custom
 const openThemeModal = () =>{
@@ -72,6 +61,7 @@ const openThemeModal = () =>{
 const closeThemeModal=(e)=>{
 if(e.target.classList.contains('customize-theme')){
     themeModal.style.display='none';
+    changeActiveItem();
 }
 }
 
@@ -247,3 +237,20 @@ const checkColor=btn.style.color ;
 })
 
 });
+
+
+
+menuItems.forEach(item => {
+    item.addEventListener('click', () => {
+        
+        
+        
+        if (item.id != 'right' && item.id !='notifications' &&item.id !='theme') {
+            document.querySelector('.right').style.display = 'none';
+        } else if (item.id == 'right'){
+            document.querySelector('.right').style.display = 'block';
+            document.querySelector('#right .notification-count').style.display='none';
+           
+        }
+    })
+})
